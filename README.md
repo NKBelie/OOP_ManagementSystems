@@ -16,16 +16,16 @@ This repository contains complete Java implementations for **10 Object-Oriented 
 ## Exercises Overview
 | # | System | Key Features | Computation |
 |---|--------|--------------|-------------|
-| 1 | Hospital Management | Patients, admissions, treatments, bills | `generateBill()`: room + treatment + doctor + medicine |
-| 2 | School Management | Students, courses, exams, fees | `calculateAverageMarks()`: (obtained / max) × 100 |
-| 3 | Employee Payroll | Attendance, allowances, deductions, salary | `calculateNetSalary()`: basic + allowances - deductions |
-| 4 | Hotel Reservation | Rooms, bookings, services, feedback | `generateBill()`: room + service charge |
-| 5 | Vehicle Rental | Vehicles, rentals, charges, payments | `calculateTotalCharge()`: rental + penalty |
-| 6 | Banking System | Accounts, transactions, loans, payments | `calculateInterest()`: (loan × rate × duration) / 100 |
-| 7 | Real Estate Management | Properties, agreements, commissions | `calculateCommission()`: (price × rate) / 100 |
-| 8 | Library Management | Books, borrows, fines, payments | `calculateFine()`: fineAmount × daysLate |
-| 9 | Airline Ticketing | Flights, passengers, tickets, baggage | `generateInvoice()`: price + baggageFee |
-| 10 | Online Shopping | Products, orders, shipping, invoices | `calculateTotalAmount()`: price + shippingCost |
+| Q1 | Hospital Management | Patients, admissions, treatments, bills | `generateBill()`: room + treatment + doctor + medicine |
+| Q2 | School Management | Students, courses, exams, fees | `calculateAverageMarks()`: (obtained / max) × 100 |
+| Q3 | Employee Payroll | Attendance, allowances, deductions, salary | `calculateNetSalary()`: basic + allowances - deductions |
+| Q4 | Hotel Reservation | Rooms, bookings, services, feedback | `generateBill()`: room + service charge |
+| Q5 | Vehicle Rental | Vehicles, rentals, charges, payments | `calculateTotalCharge()`: rental + penalty |
+| Q6 | Banking System | Accounts, transactions, loans, payments | `calculateInterest()`: (loan × rate × duration) / 100 |
+| Q7 | Real Estate Management | Properties, agreements, commissions | `calculateCommission()`: (price × rate) / 100 |
+| Q8 | Library Management | Books, borrows, fines, payments | `calculateFine()`: fineAmount × daysLate |
+| Q9 | Airline Ticketing | Flights, passengers, tickets, baggage | `generateInvoice()`: price + baggageFee |
+| Q10 | Online Shopping | Products, orders, shipping, invoices | `calculateTotalAmount()`: price + shippingCost |
 
 ## Setup & Run
 1. Clone the repo: `git clone <repo-url>`
