@@ -1,3 +1,7 @@
+# Personal Introduction
+**Names:** NDAYISABA KAMARIZA Belie
+**ID:**27174
+-----------------------------------------------------------------
 # OOP Exercises in Java: Management Systems
 
 This repository contains complete Java implementations for **10 Object-Oriented Programming (OOP) exercises** based on real-world management systems. Each exercise demonstrates core OOP principles: inheritance (linear chain of 10 classes) and encapsulation (private fields with public getters/setters), constructors with input validation (custom exceptions), user input via `Scanner`, and a final computed method in the leaf class.
