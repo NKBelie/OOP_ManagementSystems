@@ -12,36 +12,57 @@ public class Main {
             System.out.print("Created Date (YYYY-MM-DD): "); String createdDate = scanner.nextLine();
             System.out.print("Updated Date (YYYY-MM-DD): "); String updatedDate = scanner.nextLine();
 
+            Entity entity=new Entity(id,createdDate,updatedDate);
+
             System.out.println("----------------- Airline Details ---------------");
             System.out.print("Airline Name: "); String airlineName = scanner.nextLine();
             System.out.print("Address: "); String address = scanner.nextLine();
             System.out.print("Contact Email: "); String contactEmail = scanner.nextLine();
+
+            Airline airline=new Airline(id,createdDate,updatedDate,airlineName,address,contactEmail);
 
             System.out.println("----------------- Flight Details ------------------");
             System.out.print("Flight Number: "); String flightNumber = scanner.nextLine();
             System.out.print("Destination: "); String destination = scanner.nextLine();
             System.out.print("Departure Time: "); String departureTime = scanner.nextLine();
 
+            Flight flight=new Flight(id,createdDate,updatedDate,airlineName,address,contactEmail,flightNumber,destination,departureTime);
+
             System.out.println("--------------- Passenger Details ------------------");
             System.out.print("Passenger Name: "); String passengerName = scanner.nextLine();
             System.out.print("Passport Number: "); String passportNumber = scanner.nextLine();
             System.out.print("Nationality: "); String nationality = scanner.nextLine();
 
+            Passenger passenger=new Passenger(id,createdDate,updatedDate,airlineName,address,contactEmail,flightNumber,destination,departureTime,
+                    passengerName,passportNumber,nationality);
+
             System.out.println("------------------ Seat Details --------------------");
             System.out.print("Seat Number: "); String seatNumber = scanner.nextLine();
             System.out.print("Seat Type (Economy/Business): "); String seatType = scanner.nextLine();
+
+            Seat seat=new Seat(id,createdDate,updatedDate,airlineName,address,contactEmail,flightNumber,destination,departureTime,
+                    passengerName,passportNumber,nationality,seatNumber,seatType);
 
             System.out.println("---------------- Ticket Details -------------------");
             System.out.print("Ticket Number: "); String ticketNumber = scanner.nextLine();
             System.out.print("Price: "); double price = Double.parseDouble(scanner.nextLine());
 
+            Ticket ticket=new Ticket(id,createdDate,updatedDate,airlineName,address,contactEmail,flightNumber,destination,departureTime,
+                    passengerName,passportNumber,nationality,seatNumber,seatType,ticketNumber,price);
+
             System.out.println("----------------- Baggage Details ------------------");
             System.out.print("Baggage Weight: "); double baggageWeight = Double.parseDouble(scanner.nextLine());
             System.out.print("Baggage Fee: "); double baggageFee = Double.parseDouble(scanner.nextLine());
 
+            Baggage baggage=new Baggage(id,createdDate,updatedDate,airlineName,address,contactEmail,flightNumber,destination,departureTime,
+                    passengerName,passportNumber,nationality,seatNumber,seatType,ticketNumber,price,baggageWeight,baggageFee);
+
             System.out.println("--------------- Payment Details ------------------");
             System.out.print("Payment Date (YYYY-MM-DD): "); String paymentDate = scanner.nextLine();
             System.out.print("Payment Mode: "); String paymentMode = scanner.nextLine();
+
+            Payment payment=new Payment(id,createdDate,updatedDate,airlineName,address,contactEmail,flightNumber,destination,departureTime,
+                    passengerName,passportNumber,nationality,seatNumber,seatType,ticketNumber,price,baggageWeight,baggageFee,paymentDate,paymentMode);
 
             System.out.println("----------------- Invoice Details ------------------");
             System.out.print("Total Fare (initial): "); double totalFare = Double.parseDouble(scanner.nextLine());

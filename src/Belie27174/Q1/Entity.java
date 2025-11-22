@@ -1,5 +1,6 @@
 package Belie27174.Q1;
 
+
 public class Entity {
     private int id;
     private String createDate;
@@ -7,6 +8,12 @@ public class Entity {
 
     public Entity(int id, String createDate, String updatedDate)
             throws HospitalDataException {
+        if (id <= 0) {
+            throw new HospitalDataException("Id must be greater to (0) Zero");
+        }
+        if (createDate==null || updatedDate==null || createDate.trim().isEmpty() || updatedDate.trim().isEmpty()) {
+            throw new HospitalDataException("Created Date Can not be Empty");
+        }
         this.id = id;
         this.createDate = createDate;
         this.updatedDate = updatedDate;
@@ -17,8 +24,7 @@ public class Entity {
     }
 
     public void setId(int id) throws HospitalDataException {
-        if (id <= 0)
-            throw new HospitalDataException("Id must be greater to (0) Zero");
+
         this.id = id;
     }
 
@@ -27,9 +33,7 @@ public class Entity {
     }
 
     public void setCreateDate(String createDate) throws HospitalDataException {
-        if (createDate==null || createDate.isBlank()){
-            throw new HospitalDataException("Created Date Can not be Empty");
-        }
+
         this.createDate = createDate;
     }
 
@@ -38,9 +42,14 @@ public class Entity {
     }
 
     public void setUpdatedDate(String updatedDate) throws HospitalDataException {
-        if (updatedDate==null|| updatedDate.isBlank()){
-            throw new HospitalDataException("Update Date can be Empty");
-        }
+
         this.updatedDate = updatedDate;
+    }
+    @Override
+    public String toString(){
+        return
+                "Entity ID: "+ id +
+                "/nCreated Date: "+ createDate +
+                "/nUpdated Date: "+ updatedDate ;
     }
 }

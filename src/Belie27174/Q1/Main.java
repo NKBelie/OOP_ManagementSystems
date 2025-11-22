@@ -1,5 +1,6 @@
 package Belie27174.Q1;
 
+
 import java.util.Scanner;
 
 public class Main {
@@ -9,7 +10,7 @@ public class Main {
         try {
             System.out.println("============= HOSPITAL MANAGEMENT SYSTEM ==============");
 
-            // ---------------- ENTITY ----------------
+            // ---------------- ENTITY (Early Validation) ----------------
             System.out.println("-------------ENTITY INFORMATION -------------");
             System.out.print("Enter Entity ID : ");
             int id = Integer.parseInt(sc.nextLine().trim());
@@ -20,8 +21,10 @@ public class Main {
             System.out.print("Enter Updated Date (YYYY-MM-DD): ");
             String updatedDate = sc.nextLine().trim();
 
+            // Validate Entity EARLY (rejects ID <=0—no further prompts)
+            Entity entity = new Entity(id, createdDate, updatedDate);  // Throws if invalid
 
-            // ---------------- HOSPITAL ----------------
+            // Only if valid: Continue prompts
             System.out.println("---------------- HOSPITAL INFORMATION ----------------");
             System.out.print("Hospital Name: ");
             String hospitalName = sc.nextLine().trim();
@@ -33,10 +36,12 @@ public class Main {
             String phoneNumber = sc.nextLine().trim();
 
             System.out.print("Email: ");
-            String email = sc.nextLine().trim();
+            String email = sc.nextLine();
 
+            // Validate Hospital incrementally (after phone prompt)
+            Hospital hospital = new Hospital(id, createdDate, updatedDate, hospitalName, address, phoneNumber,email);  // Throws if phone invalid
 
-            // ---------------- DEPARTMENT ----------------
+            // Continue similarly for each class (prompt, create partial object to validate)
             System.out.println("--------------- DEPARTMENT INFORMATION -----------------");
             System.out.print("Department Name: ");
             String departmentName = sc.nextLine().trim();
@@ -44,20 +49,23 @@ public class Main {
             System.out.print("Department Code (≥3 chars): ");
             String departmentCode = sc.nextLine().trim();
 
+            Department department = new Department(id, createdDate, updatedDate, hospitalName, address, phoneNumber, "temp@email.com", departmentName, departmentCode);  // Validates code
 
+            // ... Repeat pattern for Doctor, Nurse, etc. (prompt fields, create partial for validation)
             // ---------------- DOCTOR ----------------
             System.out.println("--------------- DOCTOR INFORMATION --------------------");
             System.out.print("Doctor Name: ");
-            String doctorName = sc.nextLine().trim();
+            String doctorName = sc.nextLine();
 
             System.out.print("Specialization: ");
-            String specialization = sc.nextLine().trim();
+            String specialization = sc.nextLine();
 
             System.out.print("Doctor Email: ");
-            String doctorEmail = sc.nextLine().trim();
+            String doctorEmail = sc.nextLine();
 
             System.out.print("Doctor Phone (10 digits): ");
-            String doctorPhone = sc.nextLine().trim();
+            String doctorPhone = sc.nextLine();
+            Doctor doctor=new Doctor(id,createdDate,updatedDate,hospitalName,address,phoneNumber,email,departmentName,departmentCode,doctorName,specialization,doctorEmail,doctorPhone);
 
 
             // ---------------- NURSE ----------------
@@ -71,8 +79,9 @@ public class Main {
             System.out.print("Years of Experience: ");
             int years = Integer.parseInt(sc.nextLine().trim());
 
+            Nurse nurse=new Nurse(id,createdDate,updatedDate,hospitalName,address,phoneNumber,email,departmentName,departmentCode,doctorName,specialization,doctorEmail,doctorPhone,nurseName,shift,years);
 
-            // ---------------- PATIENT ----------------
+            // ---------------- PATIENT ---------------- (example for later classes)
             System.out.println("---------------- PATIENT INFORMATION ------------------");
             System.out.print("Patient Name: ");
             String patientName = sc.nextLine().trim();
@@ -85,7 +94,8 @@ public class Main {
 
             System.out.print("Patient Contact Number: ");
             String contactNumber = sc.nextLine().trim();
-
+            Patient patient =new Patient(id,createdDate,updatedDate,hospitalName,address,phoneNumber,email,
+                    departmentName,departmentCode,doctorName,specialization,doctorEmail,doctorPhone,nurseName,shift,years,patientName,age,gender,contactNumber);
 
             // ---------------- ADMISSION ----------------
             System.out.println("---------------- ADMISSION DETAILS ---------------------");
@@ -97,6 +107,9 @@ public class Main {
 
             System.out.print("Room Charges: ");
             int roomCharges = Integer.parseInt(sc.nextLine().trim());
+            Admission admission=new Admission(id,createdDate,updatedDate,hospitalName,address,phoneNumber,email,
+                    departmentName,departmentCode,doctorName,specialization,doctorEmail,doctorPhone,nurseName,shift
+                    ,years,patientName,age,gender,contactNumber,admissionDate,roomNumber,roomCharges);
 
 
             // ---------------- TREATMENT ----------------
@@ -109,7 +122,9 @@ public class Main {
 
             System.out.print("Treatment Cost: ");
             int treatmentCost = Integer.parseInt(sc.nextLine().trim());
-
+            Treatment treatment=new Treatment(id,createdDate,updatedDate,hospitalName,address,phoneNumber,email,
+                    departmentName,departmentCode,doctorName,specialization,doctorEmail,doctorPhone,nurseName,shift
+                    ,years,patientName,age,gender,contactNumber,admissionDate,roomNumber,roomCharges,diagnosis,treatmentGiven,treatmentCost);
 
             // ---------------- BILLING ----------------
             System.out.println("---------------- BILLING INFORMATION ----------------");
@@ -118,13 +133,20 @@ public class Main {
 
             System.out.print("Medicine Cost: ");
             int medicineCost = Integer.parseInt(sc.nextLine().trim());
+            Bill bill =new Bill(id,createdDate,updatedDate,hospitalName,address,phoneNumber,email,
+                    departmentName,departmentCode,doctorName,specialization,doctorEmail,doctorPhone,nurseName,shift
+                    ,years,patientName,age,gender,contactNumber,admissionDate,roomNumber,roomCharges,
+                    diagnosis,treatmentGiven,treatmentCost,doctorFee,medicineCost,treatmentCost);
 
+            // Final Creation (all prior validations passed)
+            HospitalRecord hospitalRecord = new HospitalRecord(id, createdDate, updatedDate, hospitalName,
+                    address, phoneNumber, email, departmentName, departmentCode, doctorName, specialization,
+                    doctorEmail, doctorPhone, nurseName, shift, years, patientName, age, gender, contactNumber,
+                    admissionDate, roomNumber, roomCharges, diagnosis, treatmentGiven, treatmentCost, doctorFee, medicineCost
+            );
 
-            // ---------------- CREATE OBJECT ----------------
-            HospitalRecord hospitalRecord = new HospitalRecord(id, createdDate, updatedDate,hospitalName, address, phoneNumber, email, departmentName, departmentCode, doctorName, specialization, doctorEmail, doctorPhone, nurseName, shift, years, patientName, age, gender, contactNumber, admissionDate, roomNumber, roomCharges, diagnosis, treatmentGiven, treatmentCost, doctorFee, medicineCost);
-
+            System.out.println("27174 :Hospital Record " + hospitalRecord);
             System.out.println("---------------- Record Saved Successfully! ----------------");
-
 
             // ---------------- PRINT RECEIPT ----------------
             System.out.println("============= HOSPITAL BILL RECEIPT =============");
@@ -137,11 +159,13 @@ public class Main {
             System.out.printf("%-25s: %.2f%n", "27174 : Doctor Fee", hospitalRecord.getDoctorFee());
             System.out.printf("%-25s: %.2f%n", "27174 : Medicine Cost", hospitalRecord.getMedicineCost());
             System.out.println("-------------------------------------------------");
-            System.out.printf(" TOTAL PAYABLE", hospitalRecord.generateBill());
+            System.out.printf("%-25s: %.2f%n", "TOTAL PAYABLE", hospitalRecord.generateBill());
             System.out.println("=================================================");
 
         } catch (NumberFormatException nfe) {
-            System.err.println("27174 :  Input error: Enter correct numbers!");
+            System.err.println("27174 : Input error: Enter correct Inputs! " + nfe.getMessage());
+        } catch (HospitalDataException ex) {  // Specific catch for your custom exception
+            System.err.println("27174 : Validation Error: " + ex.getMessage());  // e.g., "ID must be > 0"
         } catch (Exception ex) {
             System.err.println("27174 : Unexpected error: " + ex.getMessage());
         } finally {

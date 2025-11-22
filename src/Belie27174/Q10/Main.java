@@ -11,40 +11,60 @@ public class Main {
             System.out.print("ID: "); int id = Integer.parseInt(scanner.nextLine());
             System.out.print("Created Date (YYYY-MM-DD): "); String createdDate = scanner.nextLine();
             System.out.print("Updated Date (YYYY-MM-DD): "); String updatedDate = scanner.nextLine();
+            Entity entity=new Entity(id,createdDate,updatedDate);
 
             System.out.println("------------------- Store Details -----------------");
             System.out.print("Store Name: "); String storeName = scanner.nextLine();
             System.out.print("Address: "); String address = scanner.nextLine();
             System.out.print("Email: "); String email = scanner.nextLine();
 
+            Store store= new Store (id,createdDate,updatedDate,storeName,address,email);
+
             System.out.println("------------------- Category Details -----------------");
             System.out.print("Category Name: "); String categoryName = scanner.nextLine();
             System.out.print("Category Code (>=3 chars): "); String categoryCode = scanner.nextLine();
+            Category category=new Category(id,createdDate,updatedDate,storeName,address,email,categoryName,categoryCode);
 
             System.out.println("------------------- Product Details ------------------");
             System.out.print("Product Name: "); String productName = scanner.nextLine();
             System.out.print("Product Code: "); String productCode = scanner.nextLine();
             System.out.print("Price: "); double price = Double.parseDouble(scanner.nextLine());
+            Product product=new Product(id,createdDate,updatedDate,storeName,address,email,categoryName,categoryCode,productName,productCode,price);
 
             System.out.println("-------------------- Customer Details -----------------");
             System.out.print("Customer Name: "); String customerName = scanner.nextLine();
             System.out.print("Contact Number: "); String contactNumber = scanner.nextLine();
             System.out.print("Customer Address: "); String customerAddress = scanner.nextLine();
+            Customer customer=new Customer(id,createdDate,updatedDate,storeName,address,email,categoryName,categoryCode,
+                    productName,productCode,price,customerName,contactNumber,customerAddress);
 
             System.out.println("--------------------- Order Details ---------------------");
             System.out.print("Order Date (YYYY-MM-DD): "); String orderDate = scanner.nextLine();
             System.out.print("Order ID: "); String orderId = scanner.nextLine();
+            Order order=new Order(id,createdDate,updatedDate,storeName,address,email,categoryName,categoryCode,
+                    productName,productCode,price,customerName,contactNumber,customerAddress,orderDate,orderId);
 
             System.out.println("---------------- Payment Details ------------------");
             System.out.print("Payment Method: "); String paymentMethod = scanner.nextLine();
             System.out.print("Payment Status: "); String paymentStatus = scanner.nextLine();
 
+            Payment payment=new Payment(id,createdDate,updatedDate,storeName,address,email,categoryName,categoryCode,
+                    productName,productCode,price,customerName,contactNumber,customerAddress,orderDate,orderId,paymentMethod,paymentStatus);
+
             System.out.println("--------------------- Shipping Details --------------------");
             System.out.print("Shipping Address: "); String shippingAddress = scanner.nextLine();
             System.out.print("Shipping Cost: "); double shippingCost = Double.parseDouble(scanner.nextLine());
 
+            Shipping shipping=new Shipping(id,createdDate,updatedDate,storeName,address,email,categoryName,categoryCode,
+                    productName,productCode,price,customerName,contactNumber,customerAddress,orderDate,orderId,paymentMethod,paymentStatus,
+                    shippingAddress,shippingCost);
+
             System.out.println("---------------- Invoice Details ----------------------");
             System.out.print("Total Amount (initial): "); double totalAmount = Double.parseDouble(scanner.nextLine());
+
+            Invoice invoice =new Invoice(id,createdDate,updatedDate,storeName,address,email,categoryName,categoryCode,
+                    productName,productCode,price,customerName,contactNumber,customerAddress,orderDate,orderId,paymentMethod,paymentStatus,
+                    shippingAddress,shippingCost,totalAmount);
 
             // Create instance
             OrderRecord record = new OrderRecord(id, createdDate, updatedDate, storeName, address, email,
@@ -77,7 +97,10 @@ public class Main {
             System.out.println("27174 :Validation Error: " + e.getMessage());
         } catch (NumberFormatException e) {
             System.out.println("27174 :Input Error: Please enter valid numeric values.");
-        } finally {
+        } catch (RuntimeException ex) {
+            System.out.println("Invalid Input");
+        }
+        finally {
             scanner.close();
         }
     }

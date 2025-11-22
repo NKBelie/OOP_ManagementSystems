@@ -12,42 +12,65 @@ public class Main {
             System.out.print("Created Date (YYYY-MM-DD): "); String createdDate = scanner.nextLine();
             System.out.print("Updated Date (YYYY-MM-DD): "); String updatedDate = scanner.nextLine();
 
+            Entity entity=new Entity(id,createdDate,updatedDate);
+
             System.out.println("------------------- Bank Details ------------------");
             System.out.print("Bank Name: "); String bankName = scanner.nextLine();
             System.out.print("Branch Code (>=3 chars): "); String branchCode = scanner.nextLine();
             System.out.print("Address: "); String address = scanner.nextLine();
+
+            Bank bank=new Bank(id,createdDate,updatedDate,bankName,branchCode,address);
 
             System.out.println("--------------- Account Details -----------------");
             System.out.print("Account Number: "); String accountNumber = scanner.nextLine();
             System.out.print("Account Type: "); String accountType = scanner.nextLine();
             System.out.print("Balance: "); double balance = Double.parseDouble(scanner.nextLine());
 
+            Account account=new Account(id,createdDate,updatedDate,bankName,branchCode,address,accountNumber,accountType,balance);
+
             System.out.println("----------------- Customer Details -----------------");
             System.out.print("Customer Name: "); String customerName = scanner.nextLine();
             System.out.print("Email: "); String email = scanner.nextLine();
             System.out.print("Phone Number (10 digits): "); String phoneNumber = scanner.nextLine();
+
+            Customer customer=new Customer(id,createdDate,updatedDate,bankName,branchCode,address,accountNumber,accountType,balance,customerName,email,phoneNumber);
 
             System.out.println("----------------- Transaction Details -------------------");
             System.out.print("Transaction ID: "); String transactionId = scanner.nextLine();
             System.out.print("Transaction Type: "); String transactionType = scanner.nextLine();
             System.out.print("Amount: "); double amount = Double.parseDouble(scanner.nextLine());
 
+            Transaction transaction=new Transaction(id,createdDate,updatedDate,bankName,branchCode,address,accountNumber,accountType,balance,customerName,email,phoneNumber,
+                    transactionId,transactionType,amount);
+
             System.out.println("------------------ Deposit Details ------------------");
             System.out.print("Deposit Amount: "); double depositAmount = Double.parseDouble(scanner.nextLine());
             System.out.print("Deposit Date (YYYY-MM-DD): "); String depositDate = scanner.nextLine();
 
+            Deposit deposit=new Deposit(id,createdDate,updatedDate,bankName,branchCode,address,accountNumber,accountType,balance,customerName,email,phoneNumber,
+                    transactionId,transactionType,amount,depositAmount,depositDate);
+
             System.out.println("---------------- Withdrawal Details ----------------------");
             System.out.print("Withdrawal Amount: "); double withdrawalAmount = Double.parseDouble(scanner.nextLine());
             System.out.print("Withdrawal Date (YYYY-MM-DD): "); String withdrawalDate = scanner.nextLine();
+
+            Withdrawal withdrawal=new Withdrawal(id,createdDate,updatedDate,bankName,branchCode,address,accountNumber,accountType,balance,customerName,email,phoneNumber,
+                    transactionId,transactionType,amount,depositAmount,depositDate,withdrawalAmount,withdrawalDate);
 
             System.out.println("------------------ Loan Details -------------------");
             System.out.print("Loan Amount: "); double loanAmount = Double.parseDouble(scanner.nextLine());
             System.out.print("Interest Rate: "); double interestRate = Double.parseDouble(scanner.nextLine());
             System.out.print("Duration: "); int duration = Integer.parseInt(scanner.nextLine());
 
+            Loan loan=new Loan(id,createdDate,updatedDate,bankName,branchCode,address,accountNumber,accountType,balance,customerName,email,phoneNumber,
+                    transactionId,transactionType,amount,depositAmount,depositDate,withdrawalAmount,withdrawalDate,loanAmount,interestRate,duration);
+
             System.out.println("------------------- Payment Details --------------------");
             System.out.print("Payment Amount: "); double paymentAmount = Double.parseDouble(scanner.nextLine());
             System.out.print("Payment Date (YYYY-MM-DD): "); String paymentDate = scanner.nextLine();
+
+            Payment payment=new Payment(id,createdDate,updatedDate,bankName,branchCode,address,accountNumber,accountType,balance,customerName,email,phoneNumber,
+                    transactionId,transactionType,amount,depositAmount,depositDate,withdrawalAmount,withdrawalDate,loanAmount,interestRate,duration,paymentAmount,paymentDate);
 
             // Create instance
             AccountRecord record = new AccountRecord(id, createdDate, updatedDate, bankName, branchCode, address,

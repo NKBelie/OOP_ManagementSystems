@@ -11,20 +11,30 @@ public class Main {
             System.out.print("Created Date (YYYY-MM-DD): "); String createdDate = scanner.nextLine();
             System.out.print("Updated Date (YYYY-MM-DD): "); String updatedDate = scanner.nextLine();
 
+            Entity entity=new Entity(id,createdDate,updatedDate);
+
             System.out.println("----------------- Company Details -----------------");
             System.out.print("Company Name: "); String companyName = scanner.nextLine();
             System.out.print("Address: "); String address = scanner.nextLine();
             System.out.print("Phone Number (10 digits): "); String phoneNumber = scanner.nextLine();
             System.out.print("Email: "); String email = scanner.nextLine();
 
+            Company company=new Company(id,createdDate,updatedDate,companyName,address,phoneNumber,email);
+
             System.out.println("----------------- Department Details --------------------");
             System.out.print("Department Name: "); String departmentName = scanner.nextLine();
             System.out.print("Department Code (>=3 alphanumeric): "); String departmentCode = scanner.nextLine();
+
+            Department department=new Department(id,createdDate,updatedDate,companyName,address,phoneNumber,email,departmentName,
+                    departmentCode);
 
             System.out.println("----------------- Manager Details -----------------");
             System.out.print("Manager Name: "); String managerName = scanner.nextLine();
             System.out.print("Manager Email: "); String managerEmail = scanner.nextLine();
             System.out.print("Phone: "); String phone = scanner.nextLine();
+
+            Manager manager=new Manager(id,createdDate,updatedDate,companyName,address,phoneNumber,email,departmentName,
+                    departmentCode,managerName,managerEmail,phone);
 
             System.out.println("------------------- Employee Details ----------------");
             System.out.print("Employee Name: "); String employeeName = scanner.nextLine();
@@ -32,23 +42,42 @@ public class Main {
             System.out.print("Designation: "); String designation = scanner.nextLine();
             System.out.print("Contact Number (10 digits): "); String contactNumber = scanner.nextLine();
 
+            Employee employee=new Employee(id,createdDate,updatedDate,companyName,address,phoneNumber,email,departmentName,
+                    departmentCode,managerName,managerEmail,phone,employeeName,employeeId,designation,contactNumber);
+
             System.out.println("-------------------- Attendance Details ---------------");
             System.out.print("Total Days: "); int totalDays = Integer.parseInt(scanner.nextLine());
             System.out.print("Present Days: "); int presentDays = Integer.parseInt(scanner.nextLine());
             System.out.print("Leave Days: "); int leaveDays = Integer.parseInt(scanner.nextLine());
 
+            Attendance attendance= new Attendance(id,createdDate,updatedDate,companyName,address,phoneNumber,email,departmentName,
+                    departmentCode,managerName,managerEmail,phone,employeeName,employeeId,designation,contactNumber,
+                    totalDays,presentDays,leaveDays);
+
             System.out.println("------------------- Allowance Details -------------------");
             System.out.print("Housing Allowance: "); double housingAllowance = Double.parseDouble(scanner.nextLine());
             System.out.print("Transport Allowance: "); double transportAllowance = Double.parseDouble(scanner.nextLine());
+
+            Allowance allowance= new Allowance(id,createdDate,updatedDate,companyName,address,phoneNumber,email,departmentName,
+                    departmentCode,managerName,managerEmail,phone,employeeName,employeeId,designation,contactNumber,
+                    totalDays,presentDays,leaveDays,housingAllowance,transportAllowance);
 
             System.out.println("----------------- Deduction Details -----------------");
             System.out.print("Tax Deduction: "); double taxDeduction = Double.parseDouble(scanner.nextLine());
             System.out.print("Loan Deduction: "); double loanDeduction = Double.parseDouble(scanner.nextLine());
 
+            Deduction deduction=new Deduction(id,createdDate,updatedDate,companyName,address,phoneNumber,email,departmentName,
+                    departmentCode,managerName,managerEmail,phone,employeeName,employeeId,designation,contactNumber,
+                    totalDays,presentDays,leaveDays,housingAllowance,transportAllowance,taxDeduction,loanDeduction);
+
             System.out.println("-------------------- Salary Details ---------------------");
             System.out.print("Basic Salary: "); double basicSalary = Double.parseDouble(scanner.nextLine());
             System.out.print("Gross Salary: "); double grossSalary = Double.parseDouble(scanner.nextLine());
             System.out.print("Net Salary (initial): "); double netSalary = Double.parseDouble(scanner.nextLine());
+
+            Salary salary=new Salary(id,createdDate,updatedDate,companyName,address,phoneNumber,email,departmentName,
+                    departmentCode,managerName,managerEmail,phone,employeeName,employeeId,designation,contactNumber,
+                    totalDays,presentDays,leaveDays,housingAllowance,transportAllowance,taxDeduction,loanDeduction,basicSalary,grossSalary,netSalary);
 
             // Create instance
             PayrollRecord record = new PayrollRecord(id, createdDate, updatedDate, companyName, address, phoneNumber, email,
