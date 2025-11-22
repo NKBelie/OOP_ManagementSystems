@@ -41,4 +41,4 @@ This repository contains complete Java implementations for **10 Object-Oriented 
 
 For each exercise, all classes are in separate files with linear inheritance. Contributions welcome fork and PR! 
 
-**Author**: [NDAYISABA KAMARIZA Belie] | **Date**: November 21, 2025
+**Author**: NDAYISABA KAMARIZA Belie | **Date**: November 21, 2025
